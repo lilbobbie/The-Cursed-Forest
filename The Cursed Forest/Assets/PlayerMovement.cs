@@ -14,6 +14,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            switch (GameManager.Instance.GetGameState())
+            {
+                case GameState.GameStart:
+                    break;
+                case GameState.Shop:
+                    break;
+                case GameState.Pause:
+                    GameManager.Instance.UpdateGameState(GameState.Play);
+                    break;
+                case GameState.Play:
+                    GameManager.Instance.UpdateGameState(GameState.Pause);
+                    break;
+                case GameState.GameOver:
+                    break;
+                case GameState.QuitGame:
+                    break;
+                default:
+                    break;
+            }
+        }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
