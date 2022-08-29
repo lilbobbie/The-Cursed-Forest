@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
         }
+
+
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;

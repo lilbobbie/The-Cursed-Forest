@@ -8,12 +8,20 @@ public class PlayerUI : MonoBehaviour
     public Texture2D fullHeart;
     public Texture2D emptyHeart;
     public TextMeshProUGUI score;
-    int iScore;
-    int money;
+    public TextMeshProUGUI money;
+    int _score;
+    int _money;
+
+    private void Awake()
+    {
+    }
 
     private void Update()
     {
-        iScore = PlayerManager.Instance.GetScore();
-        score.text = "Score: " + iScore.ToString();
+        _score = PlayerManager.Instance.GetScore();
+        score.text = "Score: " + _score.ToString();
+
+        _money = PlayerManager.Instance.GetMoney();
+        money.text = _money.ToString() + "$";
     }
 }
